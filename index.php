@@ -1,35 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>AtendeLab</title>
+<?php
+echo "projeto funcionando";
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container">
-        <span class="navbar-brand">
-            AtendeLab
-        </span>
-    </div>
-</nav>
+// <!-- <!DOCTYPE html>
+// <html lang="pt-br">
+// <head>
+//     <meta charset="UTF-8">
+//     <title>AtendeLab</title>
 
-<div class="container mt-5">
+//     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+// </head>
+// <body>
 
-    <h1>Sistema de Controle de Atendimentos Acadêmicos</h1>
+// <nav class="navbar navbar-dark bg-primary">
+//     <div class="container">
+//         <span class="navbar-brand">
+//             AtendeLab
+//         </span>
+//     </div>
+// </nav>
 
-    <p>
-        Plataforma para registro e acompanhamento
-        de atendimentos acadêmicos.
-    </p>
+// <div class="container mt-5">
 
-    <a href="login.php" class="btn btn-primary">
-        Acessar Sistema
-    </a>
+//     <h1>Sistema de Controle de Atendimentos Acadêmicos</h1>
 
-</div>
+//     <p>
+//         Plataforma para registro e acompanhamento
+//         de atendimentos acadêmicos.
+//     </p>
 
-</body>
-</html>
+//     <a href="login.php" class="btn btn-primary">
+//         Acessar Sistema
+//     </a>
+
+// </div>
+
+// </body>
+// </html> -->
