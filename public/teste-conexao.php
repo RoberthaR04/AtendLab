@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$banco = "atendelabfabrica";
+$banco = "atendlab";
 $usuario = "root";
 $senha = "";
     try {

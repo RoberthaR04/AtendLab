@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . 'app/Controllers/UsuarioController.php';
+
+require_once __DIR__ . '/app/Controllers/UsuariosController.php';
 
 $controller = $_GET['controller'] ?? 'home';
 $action = $_GET['action'] ?? 'index';
@@ -14,7 +15,7 @@ if ($controller === 'usuarios') {
             break;
 
         case 'buscar':
-            $usuariosController->buscarPotId();
+            $usuariosController->buscarPorId();
             break;
 
         case 'criar':
@@ -34,6 +35,6 @@ if ($controller === 'usuarios') {
             break;
     }
 } else {
-    echo '<h1>AtendeLab</h1>';
+    echo '<h1>AtendLab</h1>';
     echo '<p.Projeto em execução. Use ?controller=usuarios&action= Listar para testar.</p>';
 }
