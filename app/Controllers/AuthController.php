@@ -9,7 +9,7 @@ class AuthController
 {
     private PDO $pdo;
 
-    public function _construct()
+    public function __construct()
     {
         global $pdo;
 
@@ -27,7 +27,7 @@ class AuthController
         $erro = $_SESSION['erro_login'] ?? null;
         $mensagem = $_SESSION['mensagem'] ?? null;
 
-        unset($_SESSION['errro_login'], $_SESSION['mensagem']);
+        unset($_SESSION['erro_login'], $_SESSION['mensagem']);
 
         require __DIR__ . '/../Views/auth/login.php';
     }
@@ -44,7 +44,7 @@ class AuthController
         $senha = $_POST['senha'] ?? '';
 
 
-        if (!filter_var($email, FILTER_VALIDADE_EMAIL)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['erro_login'] = 'Informe um e-mail válido.';
 
             header('Location: ?controller=auth&action=login');
@@ -54,14 +54,14 @@ class AuthController
         $sql = 'SELECT id, nome, email, senha, perfil, status
                 FROM usuarios
                 WHERE email = :email
-                LIMIT 1'
+                LIMIT 1';
 
         $stmt = $this->pdo->prepare($sql);
-        $stmt->binValue(':email', $email);
+        $stmt->bindValue(':email', $email);
         $stmt->execute();
 
 
-        $usuario = $stmt->fetch(PDO::FECTH_ASSOC);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (
             !$usuario
@@ -92,7 +92,7 @@ class AuthController
     {
         exigirAutenticacao();
 
-        $usuario = usuarioAtual():
+        $usuario = usuarioAtual();
 
         require __DIR__ . '/../Views/dashboard/index.php';
     
@@ -123,23 +123,6 @@ class AuthController
         $_SESSION['mensagem'] = 'Sessão encerrada com sucesso.';
 
         header('Location: ?controller=auth&action=login');
-        exit
+        exit;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
