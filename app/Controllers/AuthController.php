@@ -88,7 +88,7 @@ class AuthController
         exit;
     }
 
-    public function dashboard(): void 
+    public function dashboard(): void
     {
         exigirAutenticacao();
 
@@ -98,7 +98,7 @@ class AuthController
     
     }
 
-    public function logout(): void 
+    public function logout(): void
     {
         $_SESSION = [];
 
