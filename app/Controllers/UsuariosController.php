@@ -44,20 +44,20 @@ class UsuariosController
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
-        $usuarios = $stmt->fetch(PDO::FETCH_ASSOC);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$usuario) {
-            http_response_code(400);
+            http_response_code(404);
             echo json_encode(['erro' => 'Usuário não encontrado']);
             return;
         }
 
-        echo json_decode($usuario, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        echo json_encode($usuario, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
     public function criar() : void
     {
-        header('Content-Type: application/json; charset=utf-8');
+         header('Content-Type: application/json; charset=utf-8');
 
         $nome = trim($_POST['nome'] ?? '');
         $email = trim($_POST['email'] ?? '');
@@ -187,12 +187,14 @@ class UsuariosController
         }
 
         try {
-            $sql = 'DELETE FROM usuarios WHERE id = :id';
+            $sql = "UPDATE usuarios
+                    SET status = 'inativo'
+                    WHERE id = :id";
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
 
-            echo json_encode(['mensagem' => 'Usuário excluído com sucesso.'], JSON_UNESCAPED_UNICODE);
+            echo json_encode(['mensagem' => 'Usuário inativado com sucesso.'], JSON_UNESCAPED_UNICODE);
         } catch (PDOException $e) {
             http_response_code(500);
             echo json_encode(['erro' => 'Erro ao excluir usuário.']);
